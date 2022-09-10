@@ -1,0 +1,86 @@
+
+<div class="inline-block w-full align-middle pb-10">
+    <div class="full-width-locator flex flex-wrap overflow-hidden h-[90vh]">
+      <div class="panel w-[500px]">
+        <div class="relative px-5">
+           <div class="flex items-center flex-wrap mb-5">
+             <ul class="m-0 pt-5 flex flex-wrap justify-center text-dark_orange">
+    <li class="after:content-['/'] after:mx-1.5"><a class="transition-all duration-300 hover:text-green"
+            href="https://www.hema.com/fr-be">{{c_locator_title.[2]}}</a></li>
+    <li class="after:content after:mx-1.5"><a class="transition-all duration-300 hover:text-green">{{c_locator_title.[5]}}</a></li>
+</ul>   
+             </div>
+           <div class="flex items-center flex-wrap mb-5">
+           
+        <h1>{{c_locator_title.[0]}}</h1>
+           
+              {{!-- <button id="usemylocation" class="search-location-arrow py-1 pl-9 pr-16 ml-12 leading-8 text-white bg-orange font-semibold text-base relative"
+          title="Search using your current location!" id="useLocation">
+         Locate <svg class="w-6 h-6 absolute right-5 top-1/2 -mt-3 fill-white"
+            xmlns="http://www.w3.org/2000/svg" width="24" height="24.002">
+            <g fill="none">
+              <path d="M0 0h24v24.002H0z" />
+              <path d="M0 0h24v24.002H0z" />
+            </g>
+            <g>
+              <circle cx="12" cy="12.002" r="3" />
+              <path
+                d="M22 11.002h-2.069A8.007 8.007 0 0 0 13 4.071V2.002h-2v2.069a8.008 8.008 0 0 0-6.931 6.931H2v2h2.069A8.008 8.008 0 0 0 11 19.933v2.069h2v-2.069a8.008 8.008 0 0 0 6.931-6.931H22v-2zm-10 7c-3.309 0-6-2.692-6-6s2.691-6 6-6 6 2.692 6 6-2.691 6-6 6z" />
+            </g>
+          </svg>
+        </button> --}}
+       
+          </div>
+     
+          <div class="directions "></div>
+          <div class="error-text "></div>
+          
+          <div class="flex items-center flex-wrap mb-5">
+            <input class="transition-all duration-300 text-base font-normal bg-white text-dark_grey py-1.5 leading-[26px] px-4 border border-input_border rounded-md outline-none focus:outline-none w-[calc(100%_-_100px)]" type="text" id="location-input"
+              placeholder="{{c_locator_title.[1]}}" aria-label="E.g. New York" />
+            <button class="transition-all duration-300 text-base font-semibold bg-orange border border-orange hover:bg-dark_orange hover:border-dark_orange leading-[22px] text-white py-1.5 px-4 rounded-md ml-auto" title="Search using your current location!" id="search-location-button" type="submit" onclick="this.blur();">
+     {{c_locator_title.[4]}}
+            </button>
+          </div>
+          <div id="query-search" class="w-full z-10 absolute top-full left-0"></div>
+        </div>
+        <div class="spinner" style="display: none;">
+          <div class="sk-wave">
+            <div class="sk-rect sk-rect1"></div>
+            <div class="sk-rect sk-rect2"></div>
+            <div class="sk-rect sk-rect3"></div>
+            <div class="sk-rect sk-rect4"></div>
+            <div class="sk-rect sk-rect5"></div>
+          </div>
+        </div>
+
+        <div class="result-list mt-3 h-[calc(90vh_-_15rem)] overflow-x-hidden overflow-y-auto">
+          <div class="result-list-inner grid gap-y-1 ">
+          </div>
+          <div class="viewMoreBtnDiv text-center pt-4" style="">
+            <button id="viewMoreBtn" class="transition-all duration-300 text-base font-semibold bg-orange hover:bg-dark_orange text-white py-2.5 px-5 rounded-md ViewMore"></button>
+            <input type="hidden" id="offset" value="0">
+            <input type="hidden" id="totalCount" value="0">
+          </div>
+        </div>
+      </div>
+      <div id="map" class="w-[calc(100%_-_500px)]"></div>
+    </div>
+  
+</div>
+
+<div id="js-locator" data={{global.liveApiKey}}>
+</div>
+<script>
+  
+  
+  window.mapsLoader && window.mapsLoader.then(() => {
+    const script = document.createElement('script');
+    script.src = '{{global.base_url}}/locator.js';
+    script.async = true;
+    script.defer = true;
+    script.type = 'text/javascript';
+    document.getElementById('js-locator').appendChild(script);
+  }).catch(() => alert('Could not load Google Maps. Please check that your API key is valid.'));
+</script>
+
