@@ -1,0 +1,23 @@
+
+<div class="container my-24 px-6 mx-auto ">
+
+  <!-- Section: Design Block -->
+  <section class="mb-32 text-gray-800 text-center">
+    <h2 class="text-3xl font-bold mb-12">{{c_title_lists.[7]}}</h2>
+
+    <div class="grid md:grid-cols-4 xl:grid-cols-5 ">
+          {{#each c_hema_services}}
+      <div class="mb-12">
+        <img src="{{photos.[0].url}}" class="rounded-full mx-auto shadow-lg mb-4" alt=""
+          style="max-width: 100px" />
+
+        <p class="font-bold mb-2">{{name}}</p>
+
+      </div>
+    {{/each}}
+     
+    </div>
+  </section>
+  <!-- Section: Design Block -->
+
+</div>

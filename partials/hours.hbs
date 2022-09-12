@@ -6,7 +6,7 @@
           <strong class="font-normal">{{this.displayDay}}</strong>
         </div>
         <div class="lg:col-span-3">
-          {{#if this.isClosed}}<div class="closed ml-4">closed</div>{{/if}}
+          {{#if this.isClosed}}<div class="closed ml-4">{{c_locator_title.[0]}}</div>{{/if}}
           {{#if this.is247}}Open 24/7{{/if}}
           {{#each this.openIntervals}}
             {{this.start}}-{{this.end}}

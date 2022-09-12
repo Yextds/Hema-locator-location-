@@ -263,17 +263,17 @@ days_string = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi',  'vendredi', '
   let message = 'Closed';
     if (openRightNow) {
       if (currentInterval.start === "00:00" && currentInterval.end === "23:59") {
-        message = 'Open 24 Hours';
+        message = '{{c_locator_title.[1]}}';
       } else {
-        message = ' Open· Closes at [closingTime]';
+        message = ' {{c_locator_title.[2]}}· {{c_locator_title.[3]}} [closingTime]';
         message = message.replace("[closingTime]", formatTime(currentInterval.end));
       }
     } else if (nextInterval) {
       if (nextIsTomorrow) {
-        message = 'open at · closed[openingTime] tomorrow';
+        message = '{{c_locator_title.[4]}} ·{{c_locator_title.[0]}}[openingTime] tomorrow';
         message = message.replace("[openingTime]", formatTime(nextInterval.start));
       } else {
-        message = ' Closes ·Open at  [openingTime]';
+        message = ' {{c_locator_title.[0]}} ·{{c_locator_title.[4]}} [openingTime]';
         message = message.replace("[openingTime]", formatTime(nextInterval.start));
       }
     }

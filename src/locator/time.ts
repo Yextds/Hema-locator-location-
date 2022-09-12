@@ -100,7 +100,40 @@ export function formatOpenNowString(hoursData, utcOffset) {
           formatTime(currentInterval.end)
         );
       } else {
-        hoursString += "<strong class='font-bold'> Open</strong>  <strong class='font-bold'> Closes At [closingTime]</strong>";
+        var ourURL1  = window.location.href;
+        
+        if(ourURL1.includes("/nl")){
+          hoursString += "<strong class='font-bold'>  open</strong>  <strong class='font-bold'>  Sluit om [closingTime]</strong>";
+        
+        }
+        if(ourURL1.includes("/de")){
+          hoursString += "<strong class='font-bold'> offen</strong>  <strong class='font-bold'>  Schließt um [closingTime]</strong>";
+        
+        }
+        if(ourURL1.includes("/es")){
+          hoursString += "<strong class='font-bold'>Abierta</strong>  <strong class='font-bold'>  Cierra a las [closingTime]</strong>";
+ 
+        }
+        if(ourURL1.includes("/it")){
+          hoursString += "<strong class='font-bold'> Aprire</strong>  <strong class='font-bold'>  Chiude alle [closingTime]</strong>";
+        
+        }
+        if(ourURL1.includes("/pt")){
+          hoursString += "<strong class='font-bold'> Abrir</strong>  <strong class='font-bold'> Fecha em[closingTime]</strong>";
+        
+        }
+        if(ourURL1.includes("/fr")){
+          hoursString += "<strong class='font-bold'> ouverte</strong>  <strong class='font-bold'>  Ferme à [closingTime]</strong>";
+        
+        }
+        if(ourURL1.includes("/en")){
+          hoursString += "<strong class='font-bold'> Open</strong>  <strong class='font-bold'> Closes At [closingTime]</strong>";
+        
+        }
+        if(ourURL1.includes("/fr_CA")){
+          hoursString += "<strong class='font-bold'> ouverte</strong>  <strong class='font-bold'>  Ferme à [closingTime]</strong>";
+        
+        }
         hoursString = hoursString.replace(
           "[closingTime]",
           formatTime(currentInterval.end)
